@@ -374,6 +374,39 @@ const Services = () => {
 };
 
 const TechStack = () => {
+  const categories = [
+    {
+      icon: "desktop_windows",
+      title: "Frontend",
+      skills: ["Angular", "React", "TypeScript", "Tailwind CSS", "UX Design"]
+    },
+    {
+      icon: "smartphone",
+      title: "Mobile",
+      skills: ["React Native", "Flutter", "Offline-First"]
+    },
+    {
+      icon: "storage",
+      title: "Backend & Banco de Dados",
+      skills: ["Java (Spring Boot)", "Ruby on Rails", "Node.js", "PostgreSQL", "Redis", "REST APIs", "Microsserviços"]
+    },
+    {
+      icon: "cloud",
+      title: "DevOps & Nuvem",
+      skills: ["Docker", "Kubernetes", "AWS", "Google Cloud", "Heroku", "CI/CD", "Git"]
+    },
+    {
+      icon: "analytics",
+      title: "Testes & Observabilidade",
+      skills: ["JUnit", "Mockito", "RSpec", "Jest", "Sentry", "DataDog", "Grafana"]
+    },
+    {
+      icon: "smart_toy",
+      title: "Inteligência Artificial & Dados",
+      skills: ["Integração LLMs", "Embeddings", "Prompt Engineering", "Spec-Driven Dev"]
+    }
+  ];
+
   return (
     <section className="py-20" id="tecnologias">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
@@ -386,95 +419,35 @@ const TechStack = () => {
           Stack Tecnológico
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -6 }}
-            className="bg-white/70 dark:bg-surface-dark/80 backdrop-blur-md p-6 rounded-xl shadow-sm border border-gray-200/50 dark:border-white/10 transition-all"
-          >
-            <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-[#111318] dark:text-white">
-              <span className="material-symbols-outlined text-primary">desktop_windows</span> Frontend
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {['Angular', 'React', 'Next.js', 'TypeScript', 'Tailwind CSS'].map(tech => (
-                <motion.span whileHover={{ scale: 1.08 }} key={tech} className="px-3 py-1 bg-gray-100 dark:bg-white/5 border border-transparent dark:border-white/10 text-sm font-medium rounded-full text-gray-700 dark:text-gray-300 cursor-default">{tech}</motion.span>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            whileHover={{ y: -6 }}
-            className="bg-white/70 dark:bg-surface-dark/80 backdrop-blur-md p-6 rounded-xl shadow-sm border border-gray-200/50 dark:border-white/10 transition-all"
-          >
-            <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-[#111318] dark:text-white">
-              <span className="material-symbols-outlined text-primary">storage</span> Backend
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {['Ruby on Rails', 'Java', 'Node.js', 'PostgreSQL', 'GraphQL', 'Redis'].map(tech => (
-                <motion.span whileHover={{ scale: 1.08 }} key={tech} className="px-3 py-1 bg-gray-100 dark:bg-white/5 border border-transparent dark:border-white/10 text-sm font-medium rounded-full text-gray-700 dark:text-gray-300 cursor-default">{tech}</motion.span>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            whileHover={{ y: -6 }}
-            className="bg-white/70 dark:bg-surface-dark/80 backdrop-blur-md p-6 rounded-xl shadow-sm border border-gray-200/50 dark:border-white/10 transition-all"
-          >
-            <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-[#111318] dark:text-white">
-              <span className="material-symbols-outlined text-primary">smartphone</span> Mobile
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {['Flutter', 'React Native', 'iOS', 'Android', 'Dart'].map(tech => (
-                <motion.span whileHover={{ scale: 1.08 }} key={tech} className="px-3 py-1 bg-gray-100 dark:bg-white/5 border border-transparent dark:border-white/10 text-sm font-medium rounded-full text-gray-700 dark:text-gray-300 cursor-default">{tech}</motion.span>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            whileHover={{ y: -6 }}
-            className="bg-white/70 dark:bg-surface-dark/80 backdrop-blur-md p-6 rounded-xl shadow-sm border border-gray-200/50 dark:border-white/10 transition-all"
-          >
-            <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-[#111318] dark:text-white">
-              <span className="material-symbols-outlined text-primary">smart_toy</span> Inteligência Artificial
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {['OpenAI', 'Gemini', 'LangChain', 'TensorFlow', 'PyTorch'].map(tech => (
-                <motion.span whileHover={{ scale: 1.08 }} key={tech} className="px-3 py-1 bg-gray-100 dark:bg-white/5 border border-transparent dark:border-white/10 text-sm font-medium rounded-full text-gray-700 dark:text-gray-300 cursor-default">{tech}</motion.span>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            whileHover={{ y: -6 }}
-            className="bg-white/70 dark:bg-surface-dark/80 backdrop-blur-md p-6 rounded-xl shadow-sm border border-gray-200/50 dark:border-white/10 lg:col-span-2 lg:col-start-2 transition-all"
-          >
-            <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-[#111318] dark:text-white">
-              <span className="material-symbols-outlined text-primary">settings_suggest</span> Tools & DevOps
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {['Docker', 'AWS', 'Google Cloud', 'Git', 'CI/CD', 'Figma'].map(tech => (
-                <motion.span whileHover={{ scale: 1.08 }} key={tech} className="px-3 py-1 bg-gray-100 dark:bg-white/5 border border-transparent dark:border-white/10 text-sm font-medium rounded-full text-gray-700 dark:text-gray-300 cursor-default">{tech}</motion.span>
-              ))}
-            </div>
-          </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {categories.map((cat, idx) => (
+            <motion.div 
+              key={cat.title}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.08 }}
+              whileHover={{ y: -6 }}
+              className="bg-white/70 dark:bg-surface-dark/80 backdrop-blur-md p-6 rounded-xl shadow-sm border border-gray-200/50 dark:border-white/10 transition-all flex flex-col justify-between"
+            >
+              <div>
+                <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-[#111318] dark:text-white">
+                  <span className="material-symbols-outlined text-primary">{cat.icon}</span> {cat.title}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {cat.skills.map(tech => (
+                    <motion.span 
+                      whileHover={{ scale: 1.08 }} 
+                      key={tech} 
+                      className="px-3 py-1 bg-gray-100 dark:bg-white/5 border border-transparent dark:border-white/10 text-sm font-medium rounded-full text-gray-700 dark:text-gray-300 cursor-default"
+                    >
+                      {tech}
+                    </motion.span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
