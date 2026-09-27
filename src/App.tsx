@@ -243,7 +243,7 @@ const About = () => {
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.3 }}
               className="relative aspect-square w-full max-w-md mx-auto md:mr-auto rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/10" 
-              style={{ backgroundImage: 'url("/assets/eu_square.jpeg")', backgroundSize: 'cover', backgroundPosition: 'center' }}
+              style={{ backgroundImage: 'url("assets/eu_square.jpeg")', backgroundSize: 'cover', backgroundPosition: 'center' }}
             />
           </motion.div>
 
