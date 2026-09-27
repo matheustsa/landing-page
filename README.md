@@ -14,3 +14,10 @@ Landing page desenvolvida com React, Vite, TypeScript e Tailwind CSS.
    ```bash
    npm run dev
    ```
+
+## Fazendo Deploy no Github Pages
+
+1. Basta rodar o script com:
+   ```bash
+   npm run deploy
+   ```
