@@ -111,8 +111,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             className="flex flex-col justify-between rounded-2xl bg-surface-light dark:bg-surface-dark border border-surface-border-light dark:border-surface-border-dark p-6 sm:p-7 shadow-xs hover:shadow-xl hover:border-sunset-amber/40 dark:hover:border-sunset-gold/40 transition-all duration-300 relative group"
           >
             <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <div className="w-12 h-12 rounded-xl bg-sunset-amber/15 dark:bg-sunset-amber/20 border border-sunset-amber/30 text-sunset-coral dark:text-sunset-gold flex items-center justify-center shadow-xs">
+              <div className="flex items-center justify-between h-12">
+                <div className="w-12 h-12 rounded-xl bg-sunset-amber/15 dark:bg-sunset-amber/20 border border-sunset-amber/30 text-sunset-coral dark:text-sunset-gold flex items-center justify-center shadow-xs shrink-0">
                   <Mail className="w-6 h-6" aria-hidden="true" />
                 </div>
                 {copied && (
@@ -144,17 +144,17 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="flex-1 inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-text-light-primary dark:text-text-dark-primary border border-surface-border-light dark:border-surface-border-dark transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunset-amber"
+                className="flex-1 h-11 inline-flex items-center justify-center gap-2 px-3.5 rounded-xl text-sm font-semibold bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-text-light-primary dark:text-text-dark-primary border border-surface-border-light dark:border-surface-border-dark transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunset-amber"
                 aria-label={copied ? 'E-mail copiado' : 'Copiar endereço de e-mail'}
               >
                 {copied ? (
                   <>
-                    <Check className="w-4 h-4 text-emerald-500" aria-hidden="true" />
+                    <Check className="w-4 h-4 text-emerald-500 shrink-0" aria-hidden="true" />
                     <span className="text-emerald-600 dark:text-emerald-400 font-medium">Copiado</span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-4 h-4 text-text-light-secondary dark:text-text-dark-secondary" aria-hidden="true" />
+                    <Copy className="w-4 h-4 text-text-light-secondary dark:text-text-dark-secondary shrink-0" aria-hidden="true" />
                     <span>Copiar E-mail</span>
                   </>
                 )}
@@ -162,10 +162,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
               <a
                 href={`mailto:${email}`}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-sunset-coral hover:bg-sunset-amber text-white shadow-xs hover:shadow-md transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunset-amber"
+                className="h-11 inline-flex items-center justify-center gap-2 px-4 rounded-xl text-sm font-semibold bg-sunset-coral hover:bg-sunset-amber text-white shadow-xs hover:shadow-md transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunset-amber shrink-0"
                 aria-label={`Enviar e-mail para ${email}`}
               >
-                <Send className="w-4 h-4" aria-hidden="true" />
+                <Send className="w-4 h-4 shrink-0" aria-hidden="true" />
                 <span>Abrir E-mail</span>
               </a>
             </div>
@@ -181,8 +181,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             className="flex flex-col justify-between rounded-2xl bg-surface-light dark:bg-surface-dark border border-surface-border-light dark:border-surface-border-dark p-6 sm:p-7 shadow-xs hover:shadow-xl hover:border-sunset-amber/40 dark:hover:border-sunset-gold/40 transition-all duration-300 group"
           >
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-sky-500/10 dark:bg-sky-500/15 border border-sky-500/30 text-sky-600 dark:text-sky-400 flex items-center justify-center shadow-xs">
-                <Linkedin className="w-6 h-6" aria-hidden="true" />
+              <div className="flex items-center justify-between h-12">
+                <div className="w-12 h-12 rounded-xl bg-sky-500/10 dark:bg-sky-500/15 border border-sky-500/30 text-sky-600 dark:text-sky-400 flex items-center justify-center shadow-xs shrink-0">
+                  <Linkedin className="w-6 h-6" aria-hidden="true" />
+                </div>
               </div>
 
               <div>
@@ -203,12 +205,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 href={linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-text-light-primary dark:text-text-dark-primary border border-surface-border-light dark:border-surface-border-dark transition-all duration-200 group/link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunset-amber"
+                className="w-full h-11 inline-flex items-center justify-center gap-2 px-4 rounded-xl text-sm font-semibold bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-text-light-primary dark:text-text-dark-primary border border-surface-border-light dark:border-surface-border-dark transition-all duration-200 group/link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunset-amber"
                 aria-label="Abrir perfil no LinkedIn em nova aba"
               >
                 <span>Conectar no LinkedIn</span>
                 <ArrowUpRight
-                  className="w-4 h-4 text-text-light-secondary dark:text-text-dark-secondary transition-transform duration-200 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+                  className="w-4 h-4 text-text-light-secondary dark:text-text-dark-secondary transition-transform duration-200 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 shrink-0"
                   aria-hidden="true"
                 />
               </a>
@@ -225,8 +227,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             className="flex flex-col justify-between rounded-2xl bg-surface-light dark:bg-surface-dark border border-surface-border-light dark:border-surface-border-dark p-6 sm:p-7 shadow-xs hover:shadow-xl hover:border-sunset-amber/40 dark:hover:border-sunset-gold/40 transition-all duration-300 group"
           >
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-purple-500/10 dark:bg-purple-500/15 border border-purple-500/30 text-purple-600 dark:text-purple-400 flex items-center justify-center shadow-xs">
-                <Github className="w-6 h-6" aria-hidden="true" />
+              <div className="flex items-center justify-between h-12">
+                <div className="w-12 h-12 rounded-xl bg-purple-500/10 dark:bg-purple-500/15 border border-purple-500/30 text-purple-600 dark:text-purple-400 flex items-center justify-center shadow-xs shrink-0">
+                  <Github className="w-6 h-6" aria-hidden="true" />
+                </div>
               </div>
 
               <div>
@@ -247,12 +251,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 href={githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-text-light-primary dark:text-text-dark-primary border border-surface-border-light dark:border-surface-border-dark transition-all duration-200 group/link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunset-amber"
+                className="w-full h-11 inline-flex items-center justify-center gap-2 px-4 rounded-xl text-sm font-semibold bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-text-light-primary dark:text-text-dark-primary border border-surface-border-light dark:border-surface-border-dark transition-all duration-200 group/link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunset-amber"
                 aria-label="Abrir perfil no GitHub em nova aba"
               >
                 <span>Explorar no GitHub</span>
                 <ArrowUpRight
-                  className="w-4 h-4 text-text-light-secondary dark:text-text-dark-secondary transition-transform duration-200 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+                  className="w-4 h-4 text-text-light-secondary dark:text-text-dark-secondary transition-transform duration-200 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 shrink-0"
                   aria-hidden="true"
                 />
               </a>
