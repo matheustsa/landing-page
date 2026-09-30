@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Briefcase, Code2, ExternalLink } from 'lucide-react';
+import { ArrowRight, Briefcase, Code2 } from 'lucide-react';
 import { projects as defaultProjects } from '../data/portfolioData';
 import { Project } from '../types/portfolio';
 
