@@ -52,7 +52,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
               className="space-y-3"
             >
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-text-light-primary dark:text-text-dark-primary leading-[1.1]">
-                <span>Olá, eu sou </span>
+                <span>Olá, me chamo </span>
                 <span className="inline-block text-sunrise-ocean dark:text-sunset-amber">
                   {authorProfile.name}
                 </span>
@@ -202,7 +202,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
                       Especialidade
                     </p>
                     <p className="text-xs sm:text-sm font-semibold text-text-light-primary dark:text-text-dark-primary">
-                      Full Stack & Mobile
+                      Forward Deployed Engineer & Mobile
                     </p>
                   </div>
                 </motion.div>

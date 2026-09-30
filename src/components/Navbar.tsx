@@ -71,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
                 <span>Abella</span>
               </span>
               <span className="text-xs text-text-light-secondary dark:text-text-dark-secondary hidden sm:block">
-                Engenheiro de Software
+                TSA Tech
               </span>
             </div>
           </a>

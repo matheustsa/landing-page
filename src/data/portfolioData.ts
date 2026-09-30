@@ -24,7 +24,7 @@ export const socialLinks: SocialLink[] = [
 export const authorProfile: AuthorProfile = {
   name: 'Matheus Abella',
   nickname: 'Lekod',
-  role: 'Engenheiro de Software Full Stack & Mobile',
+  role: 'Me diz o que você precisa, que eu resolvo.',
   email: 'mtsa.dev@gmail.com',
   bio: 'Engenheiro de software focado na construção de sistemas distribuídos, arquiteturas escaláveis e aplicações móveis de alto padrão técnico.',
   statusBadge: 'Disponível para novos projetos',
