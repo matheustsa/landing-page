@@ -53,7 +53,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
             >
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-text-light-primary dark:text-text-dark-primary leading-[1.1]">
                 <span>Olá, eu sou </span>
-                <span className="inline-block bg-gradient-to-r from-sunrise-ocean via-sky-600 to-sunrise-gold dark:from-sunset-coral dark:via-sunset-amber dark:to-sunset-gold bg-clip-text text-transparent">
+                <span className="inline-block text-sunrise-ocean dark:text-sunset-amber">
                   {authorProfile.name}
                 </span>
               </h1>
