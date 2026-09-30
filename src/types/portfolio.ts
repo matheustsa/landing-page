@@ -26,7 +26,7 @@ export interface TechCategory {
 }
 
 export interface SocialLink {
-  platform: 'github' | 'linkedin' | 'email' | string;
+  platform: 'github' | 'linkedin' | 'email' | (string & {});
   url: string;
   label: string;
   icon: string;

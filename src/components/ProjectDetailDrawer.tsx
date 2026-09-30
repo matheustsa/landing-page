@@ -88,7 +88,7 @@ export const ProjectDetailDrawer: React.FC<ProjectDetailDrawerProps> = ({ projec
     <AnimatePresence>
       {project && (
         <div
-          className="fixed inset-0 z-50 overflow-hidden"
+          className="fixed inset-0 z-[70] overflow-hidden"
           role="dialog"
           aria-modal="true"
           aria-labelledby="project-drawer-title"
