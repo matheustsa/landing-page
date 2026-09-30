@@ -138,9 +138,33 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
               className="relative w-full max-w-xs sm:max-w-sm flex justify-center"
             >
               <div className="relative group w-full">
-                {/* Adaptive Ambient Glow */}
-                <div
-                  className="absolute -inset-4 sm:-inset-6 rounded-3xl bg-gradient-to-tr from-sunrise-sky/40 via-sunrise-ocean/25 to-sunrise-gold/30 dark:from-sunset-crimson/35 dark:via-sunset-coral/30 dark:to-sunset-gold/30 blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                {/* Animated Adaptive Ambient Glow Layers */}
+                <motion.div
+                  animate={{
+                    scale: [1, 1.07, 0.98, 1.05, 1],
+                    rotate: [0, 3, -2, 2, 0],
+                    opacity: [0.65, 0.9, 0.7, 0.85, 0.65],
+                  }}
+                  transition={{
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
+                  className="absolute -inset-4 sm:-inset-6 rounded-3xl bg-gradient-to-tr from-sunrise-sky/40 via-sunrise-ocean/30 to-sunrise-gold/35 dark:from-sunset-crimson/40 dark:via-sunset-coral/35 dark:to-sunset-gold/35 blur-2xl pointer-events-none"
+                  aria-hidden="true"
+                />
+                <motion.div
+                  animate={{
+                    scale: [1.04, 0.96, 1.06, 1],
+                    opacity: [0.35, 0.6, 0.4, 0.55, 0.35],
+                  }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                    delay: 0.8,
+                  }}
+                  className="absolute -inset-2 sm:-inset-3 rounded-3xl bg-gradient-to-br from-sunrise-gold/30 via-transparent to-sunrise-sky/30 dark:from-sunset-amber/30 dark:via-transparent to-sunset-crimson/30 blur-xl pointer-events-none"
                   aria-hidden="true"
                 />
 
