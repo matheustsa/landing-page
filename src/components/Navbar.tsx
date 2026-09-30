@@ -95,7 +95,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
             <button
               type="button"
               onClick={() => setDarkMode(!darkMode)}
-              className="relative h-10 px-3 sm:px-3.5 rounded-xl border border-surface-border-light dark:border-surface-border-dark bg-surface-light/80 dark:bg-surface-dark/80 hover:border-sunset-amber/40 dark:hover:border-sunset-gold/40 text-text-light-primary dark:text-text-dark-primary transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunset-amber flex items-center justify-center overflow-hidden group cursor-pointer shadow-xs min-w-[98px]"
+              className="relative h-10 w-[104px] shrink-0 rounded-xl border border-surface-border-light dark:border-surface-border-dark bg-surface-light/80 dark:bg-surface-dark/80 hover:border-sunset-amber/40 dark:hover:border-sunset-gold/40 text-text-light-primary dark:text-text-dark-primary transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunset-amber flex items-center justify-center overflow-hidden group cursor-pointer shadow-xs"
               aria-label={
                 darkMode
                   ? 'Alternar para tema Nascer do Sol (Claro)'
@@ -115,7 +115,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: 24, opacity: 0 }}
                     transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex items-center gap-1.5 text-sunset-gold"
+                    className="flex items-center justify-center gap-1.5 text-sunset-gold w-full"
                   >
                     <Sunset className="w-5 h-5 shrink-0" aria-hidden="true" />
                     <span className="text-xs font-mono font-semibold tracking-wide">Sunset</span>
@@ -127,7 +127,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -24, opacity: 0 }}
                     transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex items-center gap-1.5 text-sunrise-ocean"
+                    className="flex items-center justify-center gap-1.5 text-sunrise-ocean w-full"
                   >
                     <Sunrise className="w-5 h-5 shrink-0" aria-hidden="true" />
                     <span className="text-xs font-mono font-semibold tracking-wide">Sunrise</span>
