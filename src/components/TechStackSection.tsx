@@ -21,7 +21,7 @@ export const TechStackSection: React.FC<TechStackSectionProps> = ({
   return (
     <section
       id="stack"
-      className="py-20 sm:py-24 border-t border-surface-border-light dark:border-surface-border-dark relative"
+      className="py-20 sm:py-24 border-t border-surface-border-light dark:border-surface-border-dark relative overflow-hidden"
       aria-label="Stack tecnológica e habilidades técnicas"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

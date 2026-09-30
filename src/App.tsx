@@ -35,7 +35,7 @@ export function App() {
   }, [darkMode]);
 
   return (
-    <div className="min-h-screen bg-bg-light dark:bg-bg-dark text-text-light-primary dark:text-text-dark-primary font-sans transition-colors duration-300 antialiased selection:bg-sunset-amber selection:text-white">
+    <div className="min-h-screen w-full overflow-x-hidden bg-bg-light dark:bg-bg-dark text-text-light-primary dark:text-text-dark-primary font-sans transition-colors duration-300 antialiased selection:bg-sunset-amber selection:text-white">
       <SunCursorFollower darkMode={darkMode} />
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <main id="main-content">

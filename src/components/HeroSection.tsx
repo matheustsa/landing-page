@@ -192,7 +192,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.45, delay: 0.35 }}
-                  className="absolute -bottom-4 -left-3 sm:-bottom-5 sm:-left-5 bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-md border border-surface-border-light dark:border-surface-border-dark px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-2xl shadow-xl flex items-center gap-3"
+                  className="absolute -bottom-4 left-0 sm:-bottom-5 sm:-left-5 bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-md border border-surface-border-light dark:border-surface-border-dark px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-2xl shadow-xl flex items-center gap-3"
                 >
                   <div className="w-9 h-9 rounded-xl bg-sunset-amber/15 dark:bg-sunset-amber/25 flex items-center justify-center text-sunset-coral dark:text-sunset-gold border border-sunset-amber/20">
                     <Terminal className="w-4 h-4" aria-hidden="true" />
@@ -213,7 +213,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
                     initial={{ opacity: 0, y: -12 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.45, delay: 0.4 }}
-                    className="absolute -top-3 -right-2 sm:-top-4 sm:-right-4 bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-md border border-surface-border-light dark:border-surface-border-dark px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 text-xs font-medium text-text-light-primary dark:text-text-dark-primary"
+                    className="absolute -top-3 right-0 sm:-top-4 sm:-right-4 bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-md border border-surface-border-light dark:border-surface-border-dark px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 text-xs font-medium text-text-light-primary dark:text-text-dark-primary"
                   >
                     <span className="text-sm" aria-hidden="true">
                       🇧🇷

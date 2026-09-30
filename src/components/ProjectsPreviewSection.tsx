@@ -63,7 +63,7 @@ export const ProjectsPreviewSection: React.FC<ProjectsPreviewSectionProps> = ({
   return (
     <section
       id="projetos"
-      className="py-20 sm:py-24 border-t border-surface-border-light dark:border-surface-border-dark relative"
+      className="py-20 sm:py-24 border-t border-surface-border-light dark:border-surface-border-dark relative overflow-hidden"
       aria-label="Projetos em destaque desenvolvidos por Matheus Abella"
     >
       {/* Decorative ambient background glows */}
