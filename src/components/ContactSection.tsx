@@ -144,7 +144,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="flex-1 h-11 inline-flex items-center justify-center gap-2 px-3.5 rounded-xl text-sm font-semibold bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-text-light-primary dark:text-text-dark-primary border border-surface-border-light dark:border-surface-border-dark transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunset-amber"
+                className="w-full sm:flex-1 h-11 inline-flex items-center justify-center gap-2 px-3.5 rounded-xl text-sm font-semibold bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-text-light-primary dark:text-text-dark-primary border border-surface-border-light dark:border-surface-border-dark transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunset-amber"
                 aria-label={copied ? 'E-mail copiado' : 'Copiar endereço de e-mail'}
               >
                 {copied ? (
@@ -162,7 +162,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
               <a
                 href={`mailto:${email}`}
-                className="h-11 inline-flex items-center justify-center gap-2 px-4 rounded-xl text-sm font-semibold bg-sunset-coral hover:bg-sunset-amber text-white shadow-xs hover:shadow-md transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunset-amber shrink-0"
+                className="w-full sm:w-auto sm:px-5 h-11 inline-flex items-center justify-center gap-2 px-4 rounded-xl text-sm font-semibold bg-sunset-coral hover:bg-sunset-amber text-white shadow-xs hover:shadow-md transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunset-amber shrink-0"
                 aria-label={`Enviar e-mail para ${email}`}
               >
                 <Send className="w-4 h-4 shrink-0" aria-hidden="true" />
