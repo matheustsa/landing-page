@@ -122,7 +122,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     aria-live="polite"
                   >
                     <Check className="w-3.5 h-3.5" aria-hidden="true" />
-                    Copiado!
+                    Espero sua mensagem!
                   </span>
                 )}
               </div>
@@ -144,7 +144,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="w-full sm:flex-1 h-11 inline-flex items-center justify-center gap-2 px-3.5 rounded-xl text-sm font-semibold bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-text-light-primary dark:text-text-dark-primary border border-surface-border-light dark:border-surface-border-dark transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunset-amber"
+                className="w-full sm:flex-1 h-11 inline-flex items-center justify-center gap-2 px-2 rounded-xl text-sm font-semibold bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-text-light-primary dark:text-text-dark-primary border border-surface-border-light dark:border-surface-border-dark transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunset-amber"
                 aria-label={copied ? 'E-mail copiado' : 'Copiar endereço de e-mail'}
               >
                 {copied ? (
@@ -155,7 +155,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 ) : (
                   <>
                     <Copy className="w-4 h-4 text-text-light-secondary dark:text-text-dark-secondary shrink-0" aria-hidden="true" />
-                    <span>Copiar E-mail</span>
+                    <span>Copiar e-mail</span>
                   </>
                 )}
               </button>
@@ -166,7 +166,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 aria-label={`Enviar e-mail para ${email}`}
               >
                 <Send className="w-4 h-4 shrink-0" aria-hidden="true" />
-                <span>Abrir E-mail</span>
+                <span>Abrir e-mail</span>
               </a>
             </div>
           </motion.article>
