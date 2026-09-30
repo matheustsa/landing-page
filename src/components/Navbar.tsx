@@ -95,7 +95,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
             <button
               type="button"
               onClick={() => setDarkMode(!darkMode)}
-              className="relative p-2 sm:px-3 sm:py-2 rounded-xl border border-surface-border-light dark:border-surface-border-dark bg-surface-light/80 dark:bg-surface-dark/80 hover:border-sunset-amber/40 dark:hover:border-sunset-gold/40 text-text-light-primary dark:text-text-dark-primary transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunset-amber flex items-center gap-2 group cursor-pointer shadow-xs"
+              className="relative h-10 px-3 sm:px-3.5 rounded-xl border border-surface-border-light dark:border-surface-border-dark bg-surface-light/80 dark:bg-surface-dark/80 hover:border-sunset-amber/40 dark:hover:border-sunset-gold/40 text-text-light-primary dark:text-text-dark-primary transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunset-amber flex items-center justify-center overflow-hidden group cursor-pointer shadow-xs min-w-[98px]"
               aria-label={
                 darkMode
                   ? 'Alternar para tema Nascer do Sol (Claro)'
@@ -111,26 +111,26 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
                 {darkMode ? (
                   <motion.div
                     key="sunset-mode"
-                    initial={{ rotate: -30, scale: 0.8, opacity: 0 }}
-                    animate={{ rotate: 0, scale: 1, opacity: 1 }}
-                    exit={{ rotate: 30, scale: 0.8, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
+                    initial={{ y: -24, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: 24, opacity: 0 }}
+                    transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
                     className="flex items-center gap-1.5 text-sunset-gold"
                   >
-                    <Sunset className="w-5 h-5" aria-hidden="true" />
-                    <span className="hidden xl:inline text-xs font-mono font-medium">Sunset</span>
+                    <Sunset className="w-5 h-5 shrink-0" aria-hidden="true" />
+                    <span className="text-xs font-mono font-semibold tracking-wide">Sunset</span>
                   </motion.div>
                 ) : (
                   <motion.div
                     key="sunrise-mode"
-                    initial={{ rotate: 30, scale: 0.8, opacity: 0 }}
-                    animate={{ rotate: 0, scale: 1, opacity: 1 }}
-                    exit={{ rotate: -30, scale: 0.8, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
+                    initial={{ y: 24, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -24, opacity: 0 }}
+                    transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
                     className="flex items-center gap-1.5 text-sunrise-ocean"
                   >
-                    <Sunrise className="w-5 h-5" aria-hidden="true" />
-                    <span className="hidden xl:inline text-xs font-mono font-medium">Sunrise</span>
+                    <Sunrise className="w-5 h-5 shrink-0" aria-hidden="true" />
+                    <span className="text-xs font-mono font-semibold tracking-wide">Sunrise</span>
                   </motion.div>
                 )}
               </AnimatePresence>
