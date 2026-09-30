@@ -6,6 +6,7 @@ import { ProjectsPreviewSection } from './components/ProjectsPreviewSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ProjectDetailDrawer } from './components/ProjectDetailDrawer';
+import { SunCursorFollower } from './components/SunCursorFollower';
 import { Project } from './types/portfolio';
 
 export function App() {
@@ -35,6 +36,7 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-bg-light dark:bg-bg-dark text-text-light-primary dark:text-text-dark-primary font-sans transition-colors duration-300 antialiased selection:bg-sunset-amber selection:text-white">
+      <SunCursorFollower darkMode={darkMode} />
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <main id="main-content">
         <HeroSection />
