@@ -16,6 +16,7 @@ export interface Project {
   githubUrl?: string;
   liveUrl?: string;
   image: string;
+  images?: string[];
   metrics: ProjectMetric[];
 }
 

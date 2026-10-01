@@ -81,7 +81,12 @@ export const projects: Project[] = [
       'Redução de 65% no tempo de busca de produtos no armazém físico e precisão de inventário superior a 99.8%.',
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Prisma', 'Docker', 'SQLite'],
     githubUrl: 'https://github.com/matheustsa/stockspot',
-    image: 'assets/eu_square.jpeg',
+    image: 'assets/stockspot_dashboard.png',
+    images: [
+      'assets/stockspot_dashboard.png',
+      'assets/stockspot_map.png',
+      'assets/stockspot_tests.png',
+    ],
     metrics: [
       { label: 'Tempo de Busca', value: '-65%' },
       { label: 'Acurácia de Inventário', value: '99.8%' },
