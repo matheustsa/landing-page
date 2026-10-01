@@ -95,31 +95,40 @@ const ProjectImageCarousel: React.FC<ProjectImageCarouselProps> = ({ images, tit
               <span className="text-xs font-mono text-sunset-gold/80 mt-1">{subtitle}</span>
             </motion.div>
           ) : (
-            <motion.img
-              key={currentImage}
-              src={currentImage}
-              alt={`${title} - Imagem ${currentIndex + 1} de ${total}`}
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.02 }}
-              transition={{ duration: 0.22, ease: 'easeOut' }}
-              onError={() =>
-                setHasErrorMap((prev) => ({ ...prev, [currentIndex]: true }))
-              }
-              className="w-full h-full object-cover object-center"
-            />
+            <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+              {/* Blurred backdrop for letterbox fill */}
+              <img
+                src={currentImage}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover blur-xl opacity-25 scale-110 pointer-events-none"
+              />
+              <motion.img
+                key={currentImage}
+                src={currentImage}
+                alt={`${title} - Imagem ${currentIndex + 1} de ${total}`}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.02 }}
+                transition={{ duration: 0.22, ease: 'easeOut' }}
+                onError={() =>
+                  setHasErrorMap((prev) => ({ ...prev, [currentIndex]: true }))
+                }
+                className="relative z-1 max-w-full max-h-full w-auto h-auto object-contain object-center"
+              />
+            </div>
           )}
         </AnimatePresence>
 
         {/* Ambient Overlay Gradient */}
         <div
-          className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"
+          className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/70 pointer-events-none z-2"
           aria-hidden="true"
         />
 
         {/* Subtitle Badge (Bottom Left) */}
         <div className="absolute bottom-4 left-4 sm:left-5 pointer-events-none z-10">
-          <span className="inline-block px-3 py-1 rounded-md text-xs font-mono font-semibold uppercase tracking-wider bg-black/70 backdrop-blur-md text-sunset-gold border border-sunset-amber/30 shadow-xs">
+          <span className="inline-block px-3 py-1 rounded-md text-xs font-mono font-semibold uppercase tracking-wider bg-black/75 backdrop-blur-md text-sunset-gold border border-sunset-amber/30 shadow-xs">
             {subtitle}
           </span>
         </div>
@@ -127,7 +136,7 @@ const ProjectImageCarousel: React.FC<ProjectImageCarouselProps> = ({ images, tit
         {/* Slide Counter (Top Right) */}
         {total > 1 && (
           <div className="absolute top-4 right-4 z-10 pointer-events-none">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono font-semibold bg-black/70 backdrop-blur-md text-white/90 border border-white/15 shadow-xs">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono font-semibold bg-black/75 backdrop-blur-md text-white/90 border border-white/15 shadow-xs">
               <ImageIcon className="w-3 h-3 text-sunset-coral dark:text-sunset-gold" aria-hidden="true" />
               {currentIndex + 1} / {total}
             </span>

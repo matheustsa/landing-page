@@ -109,7 +109,11 @@ export const projects: Project[] = [
       'Divisão de comandas em menos de 30 segundos, eliminando erros manuais de cálculo e discussões na hora de pagar.',
     tags: ['Flutter', 'Dart', 'Riverpod', 'Mobile', 'Offline First'],
     githubUrl: 'https://github.com/matheustsa/divide-ai',
-    image: 'assets/eu_square.jpeg',
+    image: 'assets/divideai1.jpeg',
+    images: [
+      'assets/divideai1.jpeg',
+      'assets/divideai2.jpeg'
+    ],
     metrics: [
       { label: 'Precisão de Cálculo', value: '100%' },
       { label: 'Tempo de Rateio', value: '< 30s' },

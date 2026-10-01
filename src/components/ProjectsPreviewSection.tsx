@@ -35,19 +35,26 @@ const ProjectThumbnail: React.FC<ProjectThumbnailProps> = ({ image, title, subti
   }
 
   return (
-    <div className="relative w-full h-full overflow-hidden bg-slate-900">
+    <div className="relative w-full h-full overflow-hidden bg-slate-950 flex items-center justify-center">
+      {/* Blurred backdrop for letterbox fill */}
+      <img
+        src={image}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover blur-lg opacity-25 scale-110 pointer-events-none"
+      />
       <img
         src={image}
         alt={`Prévia do projeto ${title}`}
         loading="lazy"
         onError={() => setHasError(true)}
-        className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+        className="relative z-1 max-w-full max-h-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"
+        className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none z-2"
         aria-hidden="true"
       />
-      <div className="absolute bottom-3 left-4 right-4 pointer-events-none">
+      <div className="absolute bottom-3 left-4 right-4 pointer-events-none z-10">
         <span className="inline-block px-2.5 py-0.5 rounded-md text-[11px] font-mono font-semibold uppercase tracking-wider bg-black/60 backdrop-blur-md text-sunset-gold border border-sunset-amber/30">
           {subtitle}
         </span>
