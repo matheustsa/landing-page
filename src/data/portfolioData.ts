@@ -136,7 +136,13 @@ export const projects: Project[] = [
       'Diminuição de 70% no tempo gasto folheando livros de regras durante sessões ao vivo, mantendo o ritmo narrativo da partida.',
     tags: ['TypeScript', 'React', 'Multiplataforma', 'Offline First'],
     githubUrl: 'https://github.com/matheustsa',
-    image: 'assets/eu_square.jpeg',
+    image: 'assets/escudeiro1.png',
+    images: [
+      'assets/escudeiro1.png',
+      'assets/escudeiro2.png',
+      'assets/escudeiro3.png',
+      'assets/escudeiro4.png',
+    ],
     metrics: [
       { label: 'Consulta a Regras', value: '-70%' },
       { label: 'Sistemas Suportados', value: 'D20 e Homebrew' },
