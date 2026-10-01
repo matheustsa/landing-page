@@ -135,7 +135,7 @@ export const projects: Project[] = [
     image: 'assets/eu_square.jpeg',
     metrics: [
       { label: 'Consulta a Regras', value: '-70%' },
-      { label: 'Sistemas Suportados', value: 'd20 e Custom' },
+      { label: 'Sistemas Suportados', value: 'D20 e Homebrew' },
       { label: 'Disponibilidade', value: 'Offline' },
     ],
   },

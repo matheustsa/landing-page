@@ -156,9 +156,9 @@ const ProjectImageCarousel: React.FC<ProjectImageCarouselProps> = ({ images, tit
           </>
         )}
 
-        {/* Dot Pagination (Bottom Center) */}
+        {/* Dot Pagination (Bottom Right) */}
         {total > 1 && (
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-2.5 py-1.5 rounded-full border border-white/10">
+          <div className="absolute bottom-4 right-4 -translate-x-1/2 z-10 flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-2.5 py-1.5 rounded-full border border-white/10">
             {images.map((_, idx) => (
               <button
                 key={idx}
