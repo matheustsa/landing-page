@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Briefcase, Code2 } from 'lucide-react';
+import { ArrowRight, Briefcase, Code2, Maximize2 } from 'lucide-react';
 import { projects as defaultProjects } from '../data/portfolioData';
 import { Project } from '../types/portfolio';
+import { ImageLightboxModal } from './ImageLightboxModal';
 
 export interface ProjectsPreviewSectionProps {
   projects?: Project[];
@@ -13,9 +14,10 @@ interface ProjectThumbnailProps {
   image: string;
   title: string;
   subtitle: string;
+  onClick?: () => void;
 }
 
-const ProjectThumbnail: React.FC<ProjectThumbnailProps> = ({ image, title, subtitle }) => {
+const ProjectThumbnail: React.FC<ProjectThumbnailProps> = ({ image, title, subtitle, onClick }) => {
   const [hasError, setHasError] = useState(false);
 
   if (hasError) {
@@ -35,7 +37,19 @@ const ProjectThumbnail: React.FC<ProjectThumbnailProps> = ({ image, title, subti
   }
 
   return (
-    <div className="relative w-full h-full overflow-hidden bg-slate-950 flex items-center justify-center">
+    <div
+      onClick={onClick}
+      className="relative w-full h-full overflow-hidden bg-slate-950 flex items-center justify-center cursor-zoom-in group/thumb"
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick?.();
+        }
+      }}
+      aria-label={`Ampliar imagens do projeto ${title}`}
+    >
       {/* Blurred backdrop for letterbox fill */}
       <img
         src={image}
@@ -48,16 +62,23 @@ const ProjectThumbnail: React.FC<ProjectThumbnailProps> = ({ image, title, subti
         alt={`Prévia do projeto ${title}`}
         loading="lazy"
         onError={() => setHasError(true)}
-        className="relative z-1 max-w-full max-h-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
+        className="relative z-1 max-w-full max-h-full object-contain object-center transition-transform duration-500 group-hover/thumb:scale-105"
       />
       <div
         className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none z-2"
         aria-hidden="true"
       />
-      <div className="absolute bottom-3 left-4 right-4 pointer-events-none z-10">
-        <span className="inline-block px-2.5 py-0.5 rounded-md text-[11px] font-mono font-semibold uppercase tracking-wider bg-black/60 backdrop-blur-md text-sunset-gold border border-sunset-amber/30">
+
+      {/* Subtitle Badge */}
+      <div className="absolute bottom-3 left-4 right-14 pointer-events-none z-10">
+        <span className="inline-block px-2.5 py-0.5 rounded-md text-[11px] font-mono font-semibold uppercase tracking-wider bg-black/60 backdrop-blur-md text-sunset-gold border border-sunset-amber/30 truncate max-w-full">
           {subtitle}
         </span>
+      </div>
+
+      {/* Expand / Zoom Icon on hover */}
+      <div className="absolute bottom-3 right-3 z-10 p-1.5 rounded-lg bg-black/70 backdrop-blur-md text-white/80 group-hover/thumb:text-white border border-white/15 opacity-75 group-hover/thumb:opacity-100 group-hover/thumb:scale-110 transition-all pointer-events-none shadow-xs">
+        <Maximize2 className="w-3.5 h-3.5" aria-hidden="true" />
       </div>
     </div>
   );
@@ -67,6 +88,8 @@ export const ProjectsPreviewSection: React.FC<ProjectsPreviewSectionProps> = ({
   projects = defaultProjects,
   onSelectProject,
 }) => {
+  const [lightboxProject, setLightboxProject] = useState<Project | null>(null);
+
   return (
     <section
       id="projetos"
@@ -136,6 +159,7 @@ export const ProjectsPreviewSection: React.FC<ProjectsPreviewSectionProps> = ({
                   image={project.image}
                   title={project.title}
                   subtitle={project.subtitle}
+                  onClick={() => setLightboxProject(project)}
                 />
               </div>
 
@@ -209,6 +233,21 @@ export const ProjectsPreviewSection: React.FC<ProjectsPreviewSectionProps> = ({
           ))}
         </div>
       </div>
+
+      {/* Lightbox Modal for Main Page Thumbnail Clicks */}
+      <ImageLightboxModal
+        isOpen={!!lightboxProject}
+        images={
+          lightboxProject
+            ? lightboxProject.images && lightboxProject.images.length > 0
+              ? lightboxProject.images
+              : [lightboxProject.image]
+            : []
+        }
+        title={lightboxProject?.title}
+        subtitle={lightboxProject?.subtitle}
+        onClose={() => setLightboxProject(null)}
+      />
     </section>
   );
 };

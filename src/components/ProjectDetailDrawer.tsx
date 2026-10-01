@@ -15,6 +15,7 @@ import {
   ImageIcon,
 } from 'lucide-react';
 import { Project } from '../types/portfolio';
+import { ImageLightboxModal } from './ImageLightboxModal';
 
 export interface ProjectDetailDrawerProps {
   project: Project | null;
@@ -30,11 +31,13 @@ interface ProjectImageCarouselProps {
 const ProjectImageCarousel: React.FC<ProjectImageCarouselProps> = ({ images, title, subtitle }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [hasErrorMap, setHasErrorMap] = useState<Record<number, boolean>>({});
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   // Reset current index when images list changes
   useEffect(() => {
     setCurrentIndex(0);
     setHasErrorMap({});
+    setIsLightboxOpen(false);
   }, [images]);
 
   const total = images.length;
@@ -47,9 +50,9 @@ const ProjectImageCarousel: React.FC<ProjectImageCarouselProps> = ({ images, tit
     setCurrentIndex((prev) => (prev === total - 1 ? 0 : prev + 1));
   }, [total]);
 
-  // Keyboard navigation within carousel
+  // Keyboard navigation within carousel (disabled when lightbox is open)
   useEffect(() => {
-    if (total <= 1) return;
+    if (total <= 1 || isLightboxOpen) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') {
@@ -63,7 +66,7 @@ const ProjectImageCarousel: React.FC<ProjectImageCarouselProps> = ({ images, tit
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [total, handlePrev, handleNext]);
+  }, [total, handlePrev, handleNext, isLightboxOpen]);
 
   const currentImage = images[currentIndex] || '';
   const isCurrentError = hasErrorMap[currentIndex];
@@ -73,7 +76,10 @@ const ProjectImageCarousel: React.FC<ProjectImageCarouselProps> = ({ images, tit
   return (
     <div className="space-y-3">
       {/* Main Image Viewport */}
-      <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900 border border-surface-border-light dark:border-surface-border-dark group shadow-md">
+      <div
+        onClick={() => !isCurrentError && setIsLightboxOpen(true)}
+        className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900 border border-surface-border-light dark:border-surface-border-dark group shadow-md cursor-zoom-in"
+      >
         <AnimatePresence mode="wait">
           {isCurrentError ? (
             <motion.div
@@ -114,7 +120,7 @@ const ProjectImageCarousel: React.FC<ProjectImageCarouselProps> = ({ images, tit
                 onError={() =>
                   setHasErrorMap((prev) => ({ ...prev, [currentIndex]: true }))
                 }
-                className="relative z-1 max-w-full max-h-full w-auto h-auto object-contain object-center"
+                className="relative z-1 max-w-full max-h-full w-auto h-auto object-contain object-center transition-transform duration-300 group-hover:scale-[1.01]"
               />
             </div>
           )}
@@ -122,7 +128,7 @@ const ProjectImageCarousel: React.FC<ProjectImageCarouselProps> = ({ images, tit
 
         {/* Ambient Overlay Gradient */}
         <div
-          className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/70 pointer-events-none z-2"
+          className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none z-2"
           aria-hidden="true"
         />
 
@@ -133,7 +139,7 @@ const ProjectImageCarousel: React.FC<ProjectImageCarouselProps> = ({ images, tit
           </span>
         </div>
 
-        {/* Slide Counter (Top Right) */}
+        {/* Image Indicator (Bottom Right) */}
         {total > 1 && (
           <div className="absolute top-4 right-4 z-10 pointer-events-none">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono font-semibold bg-black/75 backdrop-blur-md text-white/90 border border-white/15 shadow-xs">
@@ -148,7 +154,10 @@ const ProjectImageCarousel: React.FC<ProjectImageCarouselProps> = ({ images, tit
           <>
             <button
               type="button"
-              onClick={handlePrev}
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePrev();
+              }}
               aria-label="Imagem anterior (Seta esquerda)"
               className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-black/60 hover:bg-black/85 text-white/90 hover:text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all opacity-85 hover:opacity-100 hover:scale-105 active:scale-95 cursor-pointer shadow-md focus:outline-hidden focus:ring-2 focus:ring-sunset-amber"
             >
@@ -156,33 +165,16 @@ const ProjectImageCarousel: React.FC<ProjectImageCarouselProps> = ({ images, tit
             </button>
             <button
               type="button"
-              onClick={handleNext}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleNext();
+              }}
               aria-label="Próxima imagem (Seta direita)"
               className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-black/60 hover:bg-black/85 text-white/90 hover:text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all opacity-85 hover:opacity-100 hover:scale-105 active:scale-95 cursor-pointer shadow-md focus:outline-hidden focus:ring-2 focus:ring-sunset-amber"
             >
               <ChevronRight className="w-5 h-5" aria-hidden="true" />
             </button>
           </>
-        )}
-
-        {/* Dot Pagination (Bottom Right) */}
-        {total > 1 && (
-          <div className="absolute bottom-4 right-4 -translate-x-1/2 z-10 flex items-center gap-1.5 bg-black/50 backdrop-blur-md px-2.5 py-1.5 rounded-full border border-white/10">
-            {images.map((_, idx) => (
-              <button
-                key={idx}
-                type="button"
-                onClick={() => setCurrentIndex(idx)}
-                aria-label={`Ir para a imagem ${idx + 1}`}
-                aria-current={idx === currentIndex ? 'true' : undefined}
-                className={`transition-all duration-200 rounded-full cursor-pointer focus:outline-hidden focus:ring-1 focus:ring-sunset-amber ${
-                  idx === currentIndex
-                    ? 'w-5 h-2 bg-gradient-to-r from-sunset-coral to-sunset-amber dark:from-sunset-amber dark:to-sunset-gold'
-                    : 'w-2 h-2 bg-white/40 hover:bg-white/70'
-                }`}
-              />
-            ))}
-          </div>
         )}
       </div>
 
@@ -215,7 +207,7 @@ const ProjectImageCarousel: React.FC<ProjectImageCarouselProps> = ({ images, tit
                   <img
                     src={img}
                     alt={`Miniatura ${idx + 1}`}
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-contain object-center"
                   />
                 )}
               </button>
@@ -223,6 +215,16 @@ const ProjectImageCarousel: React.FC<ProjectImageCarouselProps> = ({ images, tit
           })}
         </div>
       )}
+
+      {/* Fullscreen Lightbox Modal */}
+      <ImageLightboxModal
+        isOpen={isLightboxOpen}
+        images={images}
+        initialIndex={currentIndex}
+        title={title}
+        subtitle={subtitle}
+        onClose={() => setIsLightboxOpen(false)}
+      />
     </div>
   );
 };
